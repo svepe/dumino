@@ -11,3 +11,13 @@
 *.lai
 *.la
 *.a
+
+# Sublime Text project files
+*.sublime-project
+*.sublime-workspace
+
+# Settings
+*.settings
+
+# Binaries
+./dumino
