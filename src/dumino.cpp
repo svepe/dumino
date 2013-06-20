@@ -1,6 +1,7 @@
 #include "VirtualHID.hpp"
 #include "Dictionary.hpp"
 #include "Analyser.hpp"
+#include "DuminoSolver.hpp"
 #include <fstream>
 #include <unistd.h>
 

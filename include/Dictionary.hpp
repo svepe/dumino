@@ -54,11 +54,11 @@ class Dictionary
 		void InsertWord(const std::string& word_utf8);
 		bool ContainsWord(const std::string& word);	
 	
-	private:
 		DictionaryItem* root;
+		
+	private:
 
 		void InsertWord(DictionaryItem* item, std::string word);
 		bool ContainsWord(DictionaryItem* item, std::string word);
-		std::string UTF8toIndex(const std::string& utf8);
 };
 #endif

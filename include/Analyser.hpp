@@ -6,6 +6,7 @@
 
 const int  LETTER_OFFSET_PX = 5;
 
+
 class Analyser
 {
 public:
