@@ -55,3 +55,44 @@ inline std::string EncodingUtils::IndexToUTF8(const char& index)
 
 	return utf8;
 }
+
+const KeySym keyboardMap[32] = 
+{
+	XK_A,
+	XK_B,
+	XK_W,
+	XK_G,
+	XK_D,
+	XK_E,
+	XK_V,
+	XK_Z,
+	XK_I,
+	XK_J,
+	XK_K,
+	XK_L,
+	XK_M,
+	XK_N,
+	XK_O,
+	XK_P,
+	XK_R,
+	XK_S,
+	XK_T,
+	XK_U,
+	XK_F,
+	XK_H,
+	XK_C,
+	XK_asciitilde,
+	XK_braceleft,
+	XK_braceright,
+	XK_Y,
+	XK_0,
+	XK_X,
+	XK_0,
+	XK_bar,
+	XK_Q
+};
+		
+KeySym EncodingUtils::IndexToKeySym(char c)
+{
+	return keyboardMap[(int)c];
+}

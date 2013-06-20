@@ -17,8 +17,6 @@ int main (int argc, char* argv[])
 	sleep(5);
 	cv::Mat image;
 	vhid.TakeScreenshot(image);
-	//image = cv::imread("./dumino.png");
-
 	std::cout << "[dumino.cpp] Screeshot taken " << std::endl;
 
 	Analyser::LoadTemplates("./letters/letters.list", "./letters/");
@@ -36,17 +34,7 @@ int main (int argc, char* argv[])
 
 	DuminoSolver::Play(grid, dict);
 
-	cv::waitKey(0);
-	char key;
-	while(true)
-	{
-		key = cv::waitKey(50);
-		if(key == 'q') break;
-
-		//imshow("Screen", image);
-
-		//vhid.ClickKey(XK_A);
-		//vhid.MouseClick(Button1);
-	}
+	//	vhid.ClickKey(XK_A);
+	//	vhid.MouseClick(Button1);
 	return 0;
-	}
+}

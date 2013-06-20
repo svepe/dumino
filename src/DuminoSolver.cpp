@@ -1,8 +1,11 @@
 #include "DuminoSolver.hpp"
 #include "EncodingUtils.hpp"
 
+#include <unistd.h>
+
 bool DuminoSolver::used[5][5];
 Dictionary* DuminoSolver::found_words;
+VirtualHID* DuminoSolver::vhid;
 
 const cv::Point nbrs[8] =
 {
@@ -28,6 +31,7 @@ void DuminoSolver::Play(const std::vector<std::vector<unsigned char>> &grid,
 	}
 
 	found_words = new Dictionary();
+	vhid = new VirtualHID();
 	
 	for (int i = 0; i < 5; ++i)
 	{
@@ -36,6 +40,9 @@ void DuminoSolver::Play(const std::vector<std::vector<unsigned char>> &grid,
 			FindWord(grid, dict.root, cv::Point(j, i), "");
 		}
 	}
+
+	delete found_words;
+	delete vhid;
 }
 
 void DuminoSolver::FindWord(const DuminoGrid &grid,
@@ -63,6 +70,7 @@ void DuminoSolver::FindWord(const DuminoGrid &grid,
 				{
 					found_words->InsertWord(word);
 					Type(word);	
+					usleep(1000 * 20);
 				}
 			}
 
@@ -77,4 +85,11 @@ void DuminoSolver::FindWord(const DuminoGrid &grid,
 void DuminoSolver::Type(std::string word)
 {
 	std::cout << "[DuminoSolver.cpp] Word " << EncodingUtils::IndexToUTF8(word) << std::endl;
+
+	for (unsigned int i = 0; i < word.length(); ++i)
+	{
+		vhid->ClickKey(EncodingUtils::IndexToKeySym(word[i]));
+	}	
+
+	vhid->ClickKey(XK_Return);
 }

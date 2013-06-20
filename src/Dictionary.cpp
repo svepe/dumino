@@ -20,7 +20,7 @@ Dictionary::Dictionary(std::string filename)
 	{
 		dict >> word_utf8;
 
-//		if(word_utf8.length() > 2) return;
+		if(word_utf8.length() < 3) continue;
 
 		//std::cout << "[Dictionary.cpp] " << word_utf8 << std::endl;
 		InsertWord(EncodingUtils::UTF8ToIndex(word_utf8));

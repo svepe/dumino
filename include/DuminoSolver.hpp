@@ -4,7 +4,9 @@
 #include <vector>
 #include <string>
 #include <opencv2/opencv.hpp>
+
 #include "Dictionary.hpp"
+#include "VirtualHID.hpp"
 
 
 typedef std::vector<std::vector<unsigned char>> DuminoGrid;
@@ -20,12 +22,13 @@ class DuminoSolver
 		static void FindWord(const DuminoGrid& grid, 
 		                     DictionaryItem* item,
 		                     cv::Point p,
-		                     std::string word); 
+		                     std::string word);
+		                      
 		static void Type(std::string word);
 
 		static bool used[5][5];
 		static Dictionary* found_words;
-
+		static VirtualHID* vhid;
 };
 
 #endif
