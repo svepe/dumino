@@ -52,7 +52,7 @@ void DuminoSolver::FindWord(const DuminoGrid &grid,
 			continue;
 
 		int index = grid[new_p.y][new_p.x];
-		if(item->children[index] != NULL)
+		if((item->children[index] != NULL) && !used[new_p.y][new_p.x])
 		{
 			used[new_p.y][new_p.x] = true;
 			word.push_back(item->children[index]->value);

@@ -29,12 +29,12 @@ Dictionary::Dictionary(std::string filename)
 	dict.close();
 }
 
-inline void Dictionary::InsertWord(const std::string& word)
+void Dictionary::InsertWord(const std::string& word)
 {
 	InsertWord(root, word);
 }
 
-inline bool Dictionary::ContainsWord(const std::string& word)
+bool Dictionary::ContainsWord(const std::string& word)
 {
 	return ContainsWord(root, word);
 }

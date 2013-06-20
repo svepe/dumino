@@ -16,8 +16,8 @@ int main (int argc, char* argv[])
 
 	sleep(5);
 	cv::Mat image;
-	//vhid.TakeScreenshot(image);
-	image = cv::imread("./dumino.png");
+	vhid.TakeScreenshot(image);
+	//image = cv::imread("./dumino.png");
 
 	std::cout << "[dumino.cpp] Screeshot taken " << std::endl;
 
