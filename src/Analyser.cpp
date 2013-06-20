@@ -20,10 +20,17 @@ bool Analyser::LoadTemplates(std::string filename, std::string data_dir)
 		std::string fname;
 		temps >> fname;
 		if (fname == "\n") continue;
-		std::string full_name = data_dir;
-		full_name += fname;
-		std::cout << fname << std::endl;
-		templates.push_back(cv::imread(full_name));
+		if (fname != "-1")
+		{
+			std::string full_name = data_dir;
+			full_name += fname;
+			std::cout << fname << std::endl;
+			templates.push_back(cv::imread(full_name));
+		}
+		else
+		{
+			templates.push_back(cv::Mat());
+		}
 		// cv::imshow(fname, templates.back());
 		// cv::waitKey(0);
 	}
