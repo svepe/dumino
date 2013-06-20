@@ -1,5 +1,6 @@
 #include "VirtualHID.hpp"
 
+
 VirtualHID::VirtualHID()
 {
 	display = XOpenDisplay (NULL);
@@ -43,3 +44,24 @@ void VirtualHID::ClickKey(KeySym keysym)
     XTestFakeKeyEvent(display , keycode , False , CurrentTime); // key release event
     XFlush(display);
 }
+
+void VirtualHID::MouseUp(unsigned int button)
+{
+	XTestFakeButtonEvent(display, button, false, CurrentTime);
+};
+
+void VirtualHID::MouseClick(unsigned int button)
+{
+	XTestFakeButtonEvent(display, button, true, CurrentTime);
+	XTestFakeButtonEvent(display, button, false, CurrentTime);
+};
+
+void VirtualHID::MoveMouse(int x, int y)
+{
+	XTestFakeMotionEvent(display, -1, x, y, CurrentTime);
+};
+
+void VirtualHID::MoveMouseRelative(int x, int y)
+{
+	XTestFakeRelativeMotionEvent(display, x, y, CurrentTime);	
+};

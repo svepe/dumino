@@ -26,8 +26,8 @@ int main (int argc, char* argv[])
 
 		imshow("Screen", image);
 
-		// std::cout << "[dumino.cpp] new key ";
-		// vhid.ClickKey(XK_A);
+		//vhid.ClickKey(XK_A);
+		//vhid.MouseClick(Button1);
 	}
 	return 0;
-}
+	}
