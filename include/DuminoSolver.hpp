@@ -24,6 +24,7 @@ class DuminoSolver
 		static void Type(std::string word);
 
 		static bool used[5][5];
+		static Dictionary* found_words;
 
 };
 

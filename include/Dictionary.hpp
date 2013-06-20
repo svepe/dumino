@@ -51,7 +51,7 @@ class Dictionary
 		Dictionary();
 		Dictionary(std::string filename);
 
-		void InsertWord(const std::string& word_utf8);
+		void InsertWord(const std::string& word);
 		bool ContainsWord(const std::string& word);	
 	
 		DictionaryItem* root;

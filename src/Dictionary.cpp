@@ -23,15 +23,15 @@ Dictionary::Dictionary(std::string filename)
 //		if(word_utf8.length() > 2) return;
 
 		//std::cout << "[Dictionary.cpp] " << word_utf8 << std::endl;
-		InsertWord(word_utf8);
+		InsertWord(EncodingUtils::UTF8ToIndex(word_utf8));
 	}
 
 	dict.close();
 }
 
-inline void Dictionary::InsertWord(const std::string& word_utf8)
+inline void Dictionary::InsertWord(const std::string& word)
 {
-	InsertWord(root, EncodingUtils::UTF8ToIndex(word_utf8));
+	InsertWord(root, word);
 }
 
 inline bool Dictionary::ContainsWord(const std::string& word)

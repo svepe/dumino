@@ -2,6 +2,7 @@
 #include "Dictionary.hpp"
 #include "Analyser.hpp"
 #include "DuminoSolver.hpp"
+#include "EncodingUtils.hpp"
 #include <fstream>
 #include <unistd.h>
 
@@ -15,21 +16,25 @@ int main (int argc, char* argv[])
 
 	sleep(5);
 	cv::Mat image;
-	vhid.TakeScreenshot(image);
+	//vhid.TakeScreenshot(image);
+	image = cv::imread("./dumino.png");
+
 	std::cout << "[dumino.cpp] Screeshot taken " << std::endl;
 
 	Analyser::LoadTemplates("./letters/letters.list", "./letters/");
 	Analyser::LoadSettings("./roi.settings");
 	std::cout << "Matching..." << std::endl;
-	auto res = Analyser::MatchLetter(image);
+	auto grid = Analyser::MatchLetter(image);
 	for (int x = 0; x < 5; ++x)
 	{
 		for (int y = 0; y < 5; ++y)
 		{
-			std::cout << (unsigned int)res[x][y] << " ";
+			std::cout << EncodingUtils::IndexToUTF8(grid[x][y]) << " ";
 		}
 		std::cout << std::endl;
 	}
+
+	DuminoSolver::Play(grid, dict);
 
 	cv::waitKey(0);
 	char key;
