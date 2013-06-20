@@ -70,7 +70,7 @@ void DuminoSolver::FindWord(const DuminoGrid &grid,
 				{
 					found_words->InsertWord(word);
 					Type(word);	
-					usleep(1000 * 20);
+					usleep(1000 * 100);
 				}
 			}
 

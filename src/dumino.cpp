@@ -31,9 +31,9 @@ int main (int argc, char* argv[])
 		}
 		std::cout << std::endl;
 	}
-
+	std::cout << "Playing..." << std::endl;
 	DuminoSolver::Play(grid, dict);
-
+	std::cout << "Done!" << std::endl;
 	//	vhid.ClickKey(XK_A);
 	//	vhid.MouseClick(Button1);
 	return 0;
